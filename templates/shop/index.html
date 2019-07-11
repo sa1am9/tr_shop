@@ -4,16 +4,27 @@
     <meta charset="UTF-8"
     content="text/html";http-equiv="Content-Type">
 
-    <title>Доска Объявлений</title>
+    <title>Bulletin board </title>
 </head>
 <body>
-    <h1>Объявления</h1>
+    <h1>Ads</h1>
+    <div>
+
+        <a href="{% url 'index' %}">Main</a>
+        {% for rubric in rubrics %}
+            <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
+        {% endfor %}
+    </div>
+    <a href="{% url 'add' %}">ADD</a>
     {% for i in bbs %}
         <div>
         <h2>{{ i.title }}</h2>
         <p>{{ i.content }}</p>
+        <p>{{ i.rubric.name }} </p>
         <p>{{ i.published|date}}</p>
+        <p>{{ i.price }}</p>
+        </div>
     {% endfor %}
-    </div>
+
 </body>
 </html>

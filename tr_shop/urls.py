@@ -18,5 +18,5 @@ from django.urls import path,include
 # from shop.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("shop/",include("shop.urls"))
+    path("",include("shop.urls"))
 ]
